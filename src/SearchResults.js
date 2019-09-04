@@ -1,9 +1,9 @@
 
 import React from 'react'
 import Book from './Book'
+import PropTypes from 'prop-types';
 
 function SearchResults (props) {
-  // console.log(props.results.length)
   return (
     <div className="search-books-results">
         <ol className="books-grid">
@@ -18,5 +18,11 @@ function SearchResults (props) {
     </div>
   )
 }
+
+SearchResults.propTypes = {
+  results: PropTypes.array.isRequired,
+  changeBookshelf: PropTypes.func.isRequired,
+  query: PropTypes.string.isRequired
+};
 
 export default SearchResults;

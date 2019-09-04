@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import * as BooksAPI from './BooksAPI'
 import ButtonToMain from './ButtonToMain'
 import SearchResults from './SearchResults'
+import PropTypes from 'prop-types';
 
 class Search extends Component {
   state = {
@@ -17,7 +18,7 @@ class Search extends Component {
     })
     /* Avoids making API call with empty string as query */
     if (newQuery === "") {this.setState({results: []})}
-    else {this.handleSearch(newQuery, this.props.myBooks)}
+    else {this.handleSearch(newQuery, this.props.myBooks) }
   }
 
   handleSearch = async (query, myBooks) => {
@@ -32,7 +33,8 @@ class Search extends Component {
         results.splice(idx, 1, book);
       }
     }
-    this.setState({results: Array.isArray(results) ? results : [] })
+    // sometimes the query is empty again by the time the API response reaches back
+    this.setState({results: Array.isArray(results) && this.state.query !== "" ? results : [] })
   }
 
   render() {
@@ -56,5 +58,10 @@ class Search extends Component {
     )
   }
 }
+
+Search.propTypes = {
+  myBooks: PropTypes.array.isRequired,
+  changeBookshelf: PropTypes.func.isRequired,
+};
 
 export default Search;
