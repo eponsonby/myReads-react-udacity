@@ -39,12 +39,12 @@ class BooksApp extends React.Component {
         <Route exact path="/" render={()=>(
           <div className="list-books">
             <div className="list-books-title">
-              <h1>MyReads</h1>
+              <h1>Personal Library</h1>
             </div>
             <div className="list-books-content">
-              <Bookshelf name="Currently Reading" books={this.state.books.filter((book) => (book.shelf==="currentlyReading"))} changeBookshelf={this.changeBookshelf} />
-              <Bookshelf name="Want to Read" books={this.state.books.filter((book) => (book.shelf==="wantToRead"))} changeBookshelf={this.changeBookshelf} />
-              <Bookshelf name="Read" books={this.state.books.filter((book) => (book.shelf==="read"))} changeBookshelf={this.changeBookshelf} />
+              <Bookshelf name="Personal Library" books={this.state.books} changeBookshelf={this.changeBookshelf} />
+              {/* <Bookshelf name="Want to Read" books={this.state.books.filter((book) => (book.shelf==="wantToRead"))} changeBookshelf={this.changeBookshelf} />
+              <Bookshelf name="Read" books={this.state.books.filter((book) => (book.shelf==="read"))} changeBookshelf={this.changeBookshelf} /> */}
             </div>
             <ButtonToSearch/>
           </div>

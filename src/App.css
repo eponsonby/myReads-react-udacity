@@ -30,12 +30,19 @@ body, .app {
 }
 
 .bookshelf {
-  padding: 0 10px 20px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: flex-start;
+  /* max-width: 800px; */
+  margin: auto;
+  margin-top: 20px;
+  width: 50%;
+  border: 2px solid rgb(228, 184, 102);
 }
 
 @media (min-width: 600px) {
   .bookshelf {
-    padding: 0 20px 40px;
+    padding: 10px 20px;
   }
 }
 
