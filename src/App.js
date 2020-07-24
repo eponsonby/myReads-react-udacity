@@ -20,6 +20,8 @@ class BooksApp extends React.Component {
       })
   }
 
+
+  // Not using this in the secong iteration
   changeBookshelf = (bookToChange, toShelf) => {
     const changedBook = bookToChange;
     changedBook.shelf = toShelf;
@@ -33,6 +35,7 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
+        {/* Do we still want a search feature in the second iteration? */}
         <Route path="/search" render={()=>(
             <Search changeBookshelf={this.changeBookshelf} myBooks={this.state.books}/>
         )} />
